@@ -1,24 +1,25 @@
 package com.miguel.apibiblioteca.models;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
-@Table(name="book")
-public class Book {
+@Table(name="user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id ;
     private String name;
-    @OneToOne
-    private Author author;
-//    @OneToMany(  cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
-//
-//    private List<Review> reviews;
+
+
+
 }

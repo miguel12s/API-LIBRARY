@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping(value = "api/v1")
 public class AuthorController {
 
     @Autowired
@@ -49,7 +50,7 @@ public class AuthorController {
             }
                 return ResponseEntity
                         .status(HttpStatus.NOT_FOUND)
-                        .body("No se pudo encontrar el libro");
+                        .body("No se pudo encontrar el autor");
 
 
         } catch (Exception e) {

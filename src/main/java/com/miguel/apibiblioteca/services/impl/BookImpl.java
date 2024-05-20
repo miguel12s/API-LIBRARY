@@ -1,6 +1,6 @@
 package com.miguel.apibiblioteca.services.impl;
 
-import com.miguel.apibiblioteca.dao.BookDao;
+import com.miguel.apibiblioteca.repository.BookRepository;
 import com.miguel.apibiblioteca.models.Book;
 import com.miguel.apibiblioteca.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,26 +12,26 @@ import java.util.List;
 public class BookImpl implements BookService {
 
     @Autowired
-    private BookDao bookDao;
+    private BookRepository bookRepository;
 
 
     @Override
-    public void saveBook(Book book) {
-        bookDao.save(book);
+    public Book saveBook(Book book) {
+     return   bookRepository.save(book);
     }
 
     @Override
     public void deleteById(Long id) {
-         bookDao.deleteById(id);
+         bookRepository.deleteById(id);
     }
 
     @Override
     public List<Book> findAll() {
-        return (List<Book>) bookDao.findAll();
+        return (List<Book>) bookRepository.findAll();
     }
 
     @Override
     public Book findById(Long id) {
-        return bookDao.findById(id).orElse(null);
+        return bookRepository.findById(id).orElse(null);
     }
 }
